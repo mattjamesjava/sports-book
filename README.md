@@ -50,7 +50,7 @@ Or
            "teamA": "ManU",	
            "teamB": "Chelsea",	
            "scoreTeamA": 0,	
-	          "scoreTeamB": 1
+	   "scoreTeamB": 1
         }
      ```
   > **Post Mapping** http://localhost:8080/sportbook/update - Update an ongoing Football Match
@@ -61,7 +61,7 @@ Or
            "teamA": "ManU",	
            "teamB": "Chelsea",	
            "scoreTeamA": 0,	
-	          "scoreTeamB": 1
+	   "scoreTeamB": 1
         }
      ```
   > **Get Mapping** http://localhost:8080/sportbook/id/{id}  - Find score of a Football Match by id
