@@ -35,10 +35,31 @@ Or
 > run main method from `SportsBookApplication.java` as spring boot application.
 
 
+## Rabbit MQ Setup
+
+> Please follow the below instruction to setup Docker.
+
+Create docker-compose.yml file with screenshot content to spin up aaRabbitMQ instance with Docker containers
+
+Let’s now test the compose file by running the command docker-compose up -d. Running docker-compose up will download and set up the Rabbit MQ container.
+
+More details: https://www.section.io/engineering-education/dockerize-a-rabbitmq-instance/
+
+![](src/main/resources/static/rabbitmq-docker-compose.png)
+
+Once Docker is started, access the management console and create the following. 
+
+queue: browserWebHookQueue
+
+exchange: browserWebHookExchange
+
+routingkey: browserWebHookRouteKey
+
+
 ## Logging
-    
-   **@Lombok** - Lombok is used for logging <br/>
-   #   
+
+**@Lombok** - Lombok is used for logging <br/>
+#   
 
 ## API Endpoints
 
