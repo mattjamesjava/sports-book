@@ -69,3 +69,14 @@ Or
      ```
         id= Match id
      ```
+## Swagger Endpoints
+> **Swagger URL:** http://localhost:8080/swagger-ui/index.html#
+
+> **api-docs:** http://localhost:8080/v3/api-docs/
+
+## H2 Database Endpoint
+> **H2 Datbase URL:** http://localhost:8080/h2-console/login.jsp
+
+## Code Coverage
+
+![](src/main/resources/static/CodeCoverage.png)
