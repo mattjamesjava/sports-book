@@ -35,10 +35,31 @@ Or
 > run main method from `SportsBookApplication.java` as spring boot application.
 
 
+## Rabbit MQ Setup
+
+> Please follow the below instruction to setup Docker.
+
+Create docker-compose.yml file with screenshot content to spin up aaRabbitMQ instance with Docker containers
+
+Let’s now test the compose file by running the command docker-compose up -d. Running docker-compose up will download and set up the Rabbit MQ container.
+
+More details: https://www.section.io/engineering-education/dockerize-a-rabbitmq-instance/
+
+![](src/main/resources/static/rabbitmq-docker-compose.png)
+
+Once Docker is started, access the management console and create the following. 
+
+queue: browserWebHookQueue
+
+exchange: browserWebHookExchange
+
+routingkey: browserWebHookRouteKey
+
+
 ## Logging
-    
-   **@Lombok** - Lombok is used for logging <br/>
-   #   
+
+**@Lombok** - Lombok is used for logging <br/>
+#   
 
 ## API Endpoints
 
@@ -50,7 +71,7 @@ Or
            "teamA": "ManU",	
            "teamB": "Chelsea",	
            "scoreTeamA": 0,	
-	          "scoreTeamB": 1
+	       "scoreTeamB": 1
         }
      ```
   > **Post Mapping** http://localhost:8080/sportbook/update - Update an ongoing Football Match
@@ -61,7 +82,7 @@ Or
            "teamA": "ManU",	
            "teamB": "Chelsea",	
            "scoreTeamA": 0,	
-	          "scoreTeamB": 1
+	       "scoreTeamB": 1
         }
      ```
   > **Get Mapping** http://localhost:8080/sportbook/id/{id}  - Find score of a Football Match by id
@@ -69,3 +90,14 @@ Or
      ```
         id= Match id
      ```
+## Swagger Endpoints
+> **Swagger URL:** http://localhost:8080/swagger-ui/index.html#
+
+> **api-docs:** http://localhost:8080/v3/api-docs/
+
+## H2 Database Endpoint
+> **H2 Datbase URL:** http://localhost:8080/h2-console/login.jsp
+
+## Code Coverage
+
+![](src/main/resources/static/CodeCoverage.png)
