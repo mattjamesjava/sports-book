@@ -48,4 +48,11 @@ public class SportsBookController {
         	throw new NoSuchElementException();
         }
     }
+
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    @PostMapping("/push")
+    private String pushMessageToBrowser(@RequestBody @Valid ScoreBoards scoreBoards){
+        log.debug("push request: {}",scoreBoards.toString());
+        return sportsBookService.pushMessageToBrowser(scoreBoards);
+    }
 }

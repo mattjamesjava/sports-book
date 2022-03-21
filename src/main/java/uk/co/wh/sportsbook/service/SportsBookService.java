@@ -31,10 +31,15 @@ public class SportsBookService {
 
     //Saving/Updating new match record by using the method save() of CrudRepository
     public Long saveOrUpdate(ScoreBoards scoreBoards){
-        log.debug("Sending message to the queue.");
         sportsBookRepository.save(scoreBoards);
-        rabbitTemplate.convertAndSend(binding.getExchange(), binding.getRoutingKey(), scoreBoards.toString());
-        log.info("Message saved and broadcasted to message queue webhook with id:{}",scoreBoards.getId());
+        log.info("Message saved with id:{}",scoreBoards.getId());
         return scoreBoards.getId();
+    }
+
+    public String pushMessageToBrowser(ScoreBoards scoreBoards){
+        log.debug("Sending message to the queue.");
+        rabbitTemplate.convertAndSend(binding.getExchange(), binding.getRoutingKey(), scoreBoards.toString());
+        log.info("Scores updates broadcasted to the client’s browser");
+        return "Message Send to Queue";
     }
 }
