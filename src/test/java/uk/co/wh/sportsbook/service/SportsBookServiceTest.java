@@ -43,7 +43,23 @@ public class SportsBookServiceTest {
         when(sportsBookRepository.save(Mockito.any())).thenReturn(scoreBoards);
         Long savedMatchId = sportsBookService.saveOrUpdate(scoreBoards);
         assertThat(savedMatchId, is(scoreBoards.getId()));
-        verify(sportsBookRepository).save(scoreBoards);    }
+        verify(sportsBookRepository).save(scoreBoards);
+    }
+
+    @Test
+    public void push_message_to_client_browser() {
+        Long id = 1L;
+        ScoreBoards scoreBoards = ScoreBoards.builder()
+                .id(id)
+                .teamA("Liverpool")
+                .teamB("Chelsea")
+                .scoreTeamA(1)
+                .scoreTeamB(1)
+                .build();
+        //when(sportsBookRepository.save(Mockito.any())).thenReturn(scoreBoards);
+        String message = sportsBookService.pushMessageToBrowser(scoreBoards);
+        assertThat(message, is("Message Send to Queue"));
+    }
 
     @Test
     public void findById_should_Return_Match_ifFound() {

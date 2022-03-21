@@ -56,6 +56,29 @@ public class SportsBookControllerTest {
         }
 
     @Test
+    public void push_message_to_client_browser() throws Exception {
+        Long id = 1L;
+        String message = "Message Send to Queue";
+        ScoreBoards scoreBoards = ScoreBoards.builder()
+                .teamA("Liverpool")
+                .teamB("Chelsea")
+                .scoreTeamA(1)
+                .scoreTeamB(1)
+                .build();
+
+        when(sportsBookService.pushMessageToBrowser(any())).thenReturn(message);
+
+        mockMvc.perform(
+                        MockMvcRequestBuilders.post("/sportbook/push")
+                                .content(asJsonString(scoreBoards))
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .accept(MediaType.APPLICATION_JSON)
+                )
+                .andExpect(status().isAccepted())
+                .andExpect(content().string("Message Send to Queue"));
+    }
+
+    @Test
     public void update_scoreboard() throws Exception {
         Long id = 1L;
         ScoreBoards scoreBoards = ScoreBoards.builder()
