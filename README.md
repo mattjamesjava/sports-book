@@ -85,11 +85,24 @@ routingkey: browserWebHookRouteKey
 	       "scoreTeamB": 1
         }
      ```
+
+  > **Post Mapping** http://localhost:8080/sportbook/push - Push football match score to client's browser 
+  Request Body
+     ```
+        {           
+           "teamA": "ManU",	
+           "teamB": "Chelsea",	
+           "scoreTeamA": 0,	
+	       "scoreTeamB": 1
+        }
+     ```
+  
   > **Get Mapping** http://localhost:8080/sportbook/id/{id}  - Find score of a Football Match by id
 
      ```
         id= Match id
      ```
+
 ## Swagger Endpoints
 > **Swagger URL:** http://localhost:8080/swagger-ui/index.html#
 
